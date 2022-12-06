@@ -322,6 +322,8 @@ texture = ExtResource( 9 )
 transform = Transform( 0.538285, -0.814395, 0.216816, 0, 0.257268, 0.96634, -0.842763, -0.520167, 0.138483, 6.69968, 3.35905, -9.59252 )
 texture = ExtResource( 10 )
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="reset_level" from="." to="coins/coin" method="_on_Test_Level_reset_level"]
 [connection signal="reset_level" from="." to="coins/coin2" method="_on_Test_Level_reset_level"]
 [connection signal="reset_level" from="." to="coins/coin3" method="_on_Test_Level_reset_level"]
@@ -333,3 +335,4 @@ texture = ExtResource( 10 )
 [connection signal="coin_collect" from="coins/coin" to="." method="_on_coin_coin_collect"]
 [connection signal="coin_collect" from="coins/coin2" to="." method="_on_coin_coin_collect"]
 [connection signal="coin_collect" from="coins/coin3" to="." method="_on_coin_coin_collect"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

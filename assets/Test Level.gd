@@ -45,3 +45,13 @@ func _on_coin_coin_collect():
 func _on_checkpoint_area_body_entered(body):
 	if body.name == "Player":
 		checkpoint = true
+		
+
+func _physics_process(delta):
+	if Input.is_action_pressed("f") and Input.is_action_pressed("k"):
+		$Timer.start()
+		
+
+
+func _on_Timer_timeout():
+	get_tree().change_scene("res://levels/Start_Screen.tscn")

@@ -23,3 +23,7 @@ func _on_Timer_timeout():
 	$Timer.stop()
 	self.visible = true
 	$CollisionShape.disabled = false
+
+
+func _on_Level_2_reset_level():
+	$Timer.start()

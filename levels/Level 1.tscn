@@ -1,0 +1,379 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://libraries/Blocks.tres" type="MeshLibrary" id=1]
+[ext_resource path="res://libraries/safe_block.tres" type="MeshLibrary" id=2]
+[ext_resource path="res://assets/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/wall_material.tres" type="Material" id=4]
+[ext_resource path="res://scripts/Level 1.gd" type="Script" id=5]
+[ext_resource path="res://assets/enemyBalls.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -3, 0.776, 4 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "respawn_point"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -3, 0.776, 4 ) ]
+}
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 3, 1, 6 )
+
+[sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="BoxShape" id=4]
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 21, 0.776, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "ball1"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 21, 0.776, 1 ), Vector3( 3, 0.776, 1 ), Vector3( 21, 0.776, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 21, 0.776, 5 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "ball2"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 21, 0.776, 5 ), Vector3( 3, 0.776, 5 ), Vector3( 21, 0.776, 5 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 3, 0.776, 7 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "ball3"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 3, 0.776, 7 ), Vector3( 21, 0.776, 7 ), Vector3( 3, 0.776, 7 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 3, 0.776, 3 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "ball4"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 3, 0.776, 3 ), Vector3( 21, 0.776, 3 ), Vector3( 3, 0.776, 3 ) ]
+}
+
+[node name="Level 1" type="Spatial"]
+script = ExtResource( 5 )
+
+[node name="respawn" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 5 )
+anims/respawn_point = SubResource( 6 )
+
+[node name="blocks" type="GridMap" parent="."]
+mesh_library = ExtResource( 1 )
+data = {
+"cells": PoolIntArray( -65535, 0, 1, -65534, 0, 0, -65533, 0, 1, -65532, 0, 0, -65531, 0, 1, -65530, 0, 0, -65529, 0, 1, -65528, 0, 0, -65527, 0, 1, -65526, 0, 0, -65535, 1, 0, -65534, 1, 1, -65533, 1, 0, -65532, 1, 1, -65531, 1, 0, -65530, 1, 1, -65529, 1, 0, -65528, 1, 1, -65527, 1, 0, -65526, 1, 1, -65535, 2, 1, -65534, 2, 0, -65533, 2, 1, -65532, 2, 0, -65531, 2, 1, -65530, 2, 0, -65529, 2, 1, -65528, 2, 0, -65527, 2, 1, -65526, 2, 0, -65535, 3, 0, -65534, 3, 1, -65533, 3, 0, -65532, 3, 1, -65531, 3, 0, -65530, 3, 1, -65529, 3, 0, -65528, 3, 1, -65527, 3, 0, -65526, 3, 1, -65536, 4, 0, -65535, 4, 1, -65526, 65535, 1, -65525, 65535, 0 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, -1, 0 )
+}
+
+[node name="checkpoint" type="Spatial" parent="."]
+
+[node name="safe" type="GridMap" parent="checkpoint"]
+mesh_library = ExtResource( 2 )
+data = {
+"cells": PoolIntArray( -65524, 0, 0, -65523, 0, 0, -65522, 0, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0, -65524, 1, 0, -65523, 1, 0, -65522, 1, 0, -3, 1, 0, -2, 1, 0, -1, 1, 0, -65524, 2, 0, -65523, 2, 0, -65522, 2, 0, -3, 2, 0, -2, 2, 0, -1, 2, 0, -65524, 3, 0, -65523, 3, 0, -65522, 3, 0, -3, 3, 0, -2, 3, 0, -1, 3, 0, -65524, 4, 0, -65523, 4, 0, -65522, 4, 0, -3, 4, 0, -2, 4, 0, -1, 4, 0, -65524, 65535, 0, -65523, 65535, 0, -65522, 65535, 0, -3, 65535, 0, -2, 65535, 0, -1, 65535, 0 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, -1, 0 )
+}
+
+[node name="goal" type="Area" parent="checkpoint"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 0, 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="checkpoint/goal"]
+shape = SubResource( 1 )
+
+[node name="walls" type="Spatial" parent="."]
+
+[node name="wall1" type="StaticBody" parent="walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 6, -7, 0, 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00920105, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall1"]
+shape = SubResource( 4 )
+
+[node name="wall2" type="StaticBody" parent="walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 5, 1, 0, 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00552714, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall2"]
+shape = SubResource( 4 )
+
+[node name="wall3" type="StaticBody" parent="walls"]
+transform = Transform( -4.37114e-08, 0, 5, 0, 1, 0, -1, 0, -2.18557e-07, -3, 0, -3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall3"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall3"]
+shape = SubResource( 4 )
+
+[node name="wall4" type="StaticBody" parent="walls"]
+transform = Transform( -4.37114e-08, 0, 6, 0, 1, 0, -1, 0, -2.62268e-07, -2, 0, 11 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall4"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall4"]
+shape = SubResource( 4 )
+
+[node name="wall5" type="StaticBody" parent="walls"]
+transform = Transform( -1, 0, -3.01992e-07, 0, 1, 0, 1.50996e-07, 0, -2, 5, 0, 10 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall5"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall5"]
+shape = SubResource( 4 )
+
+[node name="wall6" type="StaticBody" parent="walls"]
+transform = Transform( -1.62921e-07, 0, 8, 0, 1, 0, -1, 0, -1.30337e-06, 14, 0, 9 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall6"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall6"]
+shape = SubResource( 4 )
+
+[node name="wall7" type="StaticBody" parent="walls"]
+transform = Transform( -1, 0, -7.54979e-07, 0, 1, 0, 1.50996e-07, 0, -5, 23, 0, 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall7"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall7"]
+shape = SubResource( 4 )
+
+[node name="wall8" type="StaticBody" parent="walls"]
+transform = Transform( -1, 0, -9.05975e-07, 0, 1, 0, 1.50996e-07, 0, -6, 31, 0, 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall8"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall8"]
+shape = SubResource( 4 )
+
+[node name="wall9" type="StaticBody" parent="walls"]
+transform = Transform( -1.62921e-07, 0, 5, 0, 1, 0, -1, 0, -8.14603e-07, 27, 0, 11 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall9"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall9"]
+shape = SubResource( 4 )
+
+[node name="wall10" type="StaticBody" parent="walls"]
+transform = Transform( -1.62921e-07, 0, 6, 0, 1, 0, -1, 0, -9.77524e-07, 26, 0, -3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall10"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall10"]
+shape = SubResource( 4 )
+
+[node name="wall11" type="StaticBody" parent="walls"]
+transform = Transform( -1, 0, -3.01992e-07, 0, 1, 0, 1.50996e-07, 0, -2, 19, 0, -2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall11"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall11"]
+shape = SubResource( 4 )
+
+[node name="wall12" type="StaticBody" parent="walls"]
+transform = Transform( -1.62921e-07, 0, 8, 0, 1, 0, -1, 0, -1.30337e-06, 10, 0, -1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall12"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall12"]
+shape = SubResource( 4 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3, 0.776, 4 )
+
+[node name="InterpolatedCamera" type="InterpolatedCamera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 12, 20, 21 )
+
+[node name="enimies" type="Spatial" parent="."]
+
+[node name="enemyBalls" parent="enimies" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 21, 0.776, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enimies/enemyBalls"]
+autoplay = "ball1"
+anims/RESET = SubResource( 7 )
+anims/ball1 = SubResource( 8 )
+
+[node name="enemyBalls2" parent="enimies" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 21, 0.776, 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enimies/enemyBalls2"]
+autoplay = "ball2"
+anims/RESET = SubResource( 9 )
+anims/ball2 = SubResource( 10 )
+
+[node name="enemyBalls3" parent="enimies" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3, 0.776, 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enimies/enemyBalls3"]
+autoplay = "ball3"
+anims/RESET = SubResource( 11 )
+anims/ball3 = SubResource( 12 )
+
+[node name="enemyBalls4" parent="enimies" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3, 0.776, 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enimies/enemyBalls4"]
+autoplay = "ball4"
+anims/RESET = SubResource( 13 )
+anims/ball4 = SubResource( 14 )
+
+[connection signal="body_entered" from="checkpoint/goal" to="." method="_on_goal_body_entered"]
+[connection signal="body_entered" from="enimies/enemyBalls" to="." method="_on_enemyBalls_body_entered"]
+[connection signal="body_entered" from="enimies/enemyBalls2" to="." method="_on_enemyBalls_body_entered"]
+[connection signal="body_entered" from="enimies/enemyBalls3" to="." method="_on_enemyBalls_body_entered"]
+[connection signal="body_entered" from="enimies/enemyBalls4" to="." method="_on_enemyBalls_body_entered"]
