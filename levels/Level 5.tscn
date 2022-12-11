@@ -1,0 +1,382 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://libraries/Blocks.tres" type="MeshLibrary" id=1]
+[ext_resource path="res://libraries/safe_block.tres" type="MeshLibrary" id=2]
+[ext_resource path="res://Level 5.gd" type="Script" id=3]
+[ext_resource path="res://assets/wall_material.tres" type="Material" id=4]
+[ext_resource path="res://assets/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/rotate of death spaced out.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -2, 0.776, -1 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "respawn_point"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -2, 0.776, -1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 29, 0.776, -1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "checkpoint_1"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 29, 0.776, -1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -1, 0.776, 3 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "checkpoint_2"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -1, 0.776, 3 ) ]
+}
+
+[sub_resource type="BoxShape" id=4]
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 1, 1, 2 )
+
+[sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="BoxShape" id=3]
+
+[sub_resource type="Animation" id=11]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "rotate"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3, 4.5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, -90, 0 ), Vector3( 0, -180, 0 ), Vector3( 0, -270, 0 ), Vector3( 0, -360, 0 ) ]
+}
+
+[node name="Level 5" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="respawn" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 6 )
+anims/respawn_point = SubResource( 1 )
+
+[node name="checkpointOne" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/RESET = SubResource( 7 )
+anims/checkpoint_1 = SubResource( 8 )
+
+[node name="checkpointTwo" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/RESET = SubResource( 9 )
+anims/checkpoint_2 = SubResource( 10 )
+
+[node name="blocks" type="GridMap" parent="."]
+mesh_library = ExtResource( 1 )
+data = {
+"cells": PoolIntArray( -65523, 0, 0, -65536, 1, 0, -65535, 1, 1, -65534, 1, 0, -65533, 1, 1, -65532, 1, 0, -65531, 1, 1, -65530, 1, 0, -65529, 1, 1, -65528, 1, 0, -65527, 1, 1, -65526, 1, 0, -65525, 1, 1, -65523, 1, 1, -65536, 2, 1, -65525, 2, 0, -65523, 2, 0, -65536, 3, 0, -65534, 3, 0, -65533, 3, 1, -65532, 3, 0, -65531, 3, 1, -65530, 3, 0, -65529, 3, 1, -65528, 3, 0, -65525, 3, 1, -65523, 3, 1, -65536, 4, 1, -65534, 4, 1, -65532, 4, 1, -65531, 4, 0, -65530, 4, 1, -65529, 4, 0, -65528, 4, 1, -65525, 4, 0, -65523, 4, 0, -65536, 5, 0, -65534, 5, 0, -65525, 5, 1, -65523, 5, 1, -65536, 6, 1, -65534, 6, 1, -65533, 6, 0, -65532, 6, 1, -65531, 6, 0, -65530, 6, 1, -65529, 6, 0, -65528, 6, 1, -65527, 6, 0, -65526, 6, 1, -65525, 6, 0, -65523, 6, 0, -65536, 7, 0, -65523, 7, 1, -65536, 8, 1, -65535, 8, 0, -65534, 8, 1, -65533, 8, 0, -65532, 8, 1, -65531, 8, 0, -65530, 8, 1, -65529, 8, 0, -65528, 8, 1, -65527, 8, 0, -65526, 8, 1, -65525, 8, 0, -65524, 8, 1, -65523, 8, 0, -65536, 65535, 0, -65535, 65535, 1, -65534, 65535, 0, -65533, 65535, 1, -65532, 65535, 0, -65531, 65535, 1, -65530, 65535, 0, -65529, 65535, 1, -65528, 65535, 0, -65527, 65535, 1, -65526, 65535, 0, -65525, 65535, 1, -65524, 65535, 0, -65523, 65535, 1 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, -1, 0 )
+}
+
+[node name="safe" type="Spatial" parent="."]
+
+[node name="safe" type="GridMap" parent="safe"]
+mesh_library = ExtResource( 2 )
+data = {
+"cells": PoolIntArray( -1, 1, 0, -65527, 3, 0, -65527, 4, 0, -65522, 65535, 0, -2, 65535, 0, -1, 65535, 0 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, -1, 0 )
+}
+
+[node name="checkpoint1" type="Area" parent="safe"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 0, -1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="safe/checkpoint1"]
+shape = SubResource( 4 )
+
+[node name="checkpoint2" type="Area" parent="safe"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="safe/checkpoint2"]
+shape = SubResource( 4 )
+
+[node name="goal" type="Area" parent="safe"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 8 )
+
+[node name="CollisionShape" type="CollisionShape" parent="safe/goal"]
+shape = SubResource( 5 )
+
+[node name="walls" type="Spatial" parent="."]
+
+[node name="wall1" type="StaticBody" parent="walls"]
+transform = Transform( -4.37114e-08, 0, -15, 0, 1, 0, 1, 0, -6.55671e-07, 11, 0, 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall1"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall1"]
+shape = SubResource( 3 )
+
+[node name="wall2" type="StaticBody" parent="walls"]
+transform = Transform( -4.37114e-08, 0, -17, 0, 1, 0, 1, 0, -7.43094e-07, 13, 0, -3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall2"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall2"]
+shape = SubResource( 3 )
+
+[node name="wall3" type="StaticBody" parent="walls"]
+transform = Transform( -1, 0, 3.01992e-07, 0, 1, 0, -1.50996e-07, 0, -2, 31, 0, -2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall3"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall3"]
+shape = SubResource( 3 )
+
+[node name="wall4" type="StaticBody" parent="walls"]
+transform = Transform( 1.94707e-07, 0, 1, 0, 1, 0, -1, 0, 1.94707e-07, 29, 0, 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall4"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall4"]
+shape = SubResource( 3 )
+
+[node name="wall5" type="StaticBody" parent="walls"]
+transform = Transform( -1, 0, 1.20797e-06, 0, 1, 0, -1.50996e-07, 0, -8, 29, 0, 10 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall5"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall5"]
+shape = SubResource( 3 )
+
+[node name="wall6" type="StaticBody" parent="walls"]
+transform = Transform( 1.94707e-07, 0, 15, 0, 1, 0, -1, 0, 2.92061e-06, 15, 0, 19 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall6"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall6"]
+shape = SubResource( 3 )
+
+[node name="wall7" type="StaticBody" parent="walls"]
+transform = Transform( 1, 0, -1.90735e-06, 0, 1, 0, 2.38419e-07, 0, 8, -1, 0, 12 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall7"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall7"]
+shape = SubResource( 3 )
+
+[node name="wall8" type="StaticBody" parent="walls"]
+transform = Transform( 1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, -3, 0, 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall8"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall8"]
+shape = SubResource( 3 )
+
+[node name="wall9" type="StaticBody" parent="walls"]
+transform = Transform( 1, 0, -1.66893e-06, 0, 1, 0, 2.38419e-07, 0, 7, 25, 0, 9 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall9"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall9"]
+shape = SubResource( 3 )
+
+[node name="wall10" type="StaticBody" parent="walls"]
+transform = Transform( -2.8213e-07, 0, -10, 0, 1, 0, 1, 0, -2.8213e-06, 14, 0, 15 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall10"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall10"]
+shape = SubResource( 3 )
+
+[node name="wall11" type="StaticBody" parent="walls"]
+transform = Transform( -1, 0, 1.94707e-06, 0, 1, 0, -3.89414e-07, 0, -5, 3, 0, 11 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall11"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall11"]
+shape = SubResource( 3 )
+
+[node name="wall12" type="StaticBody" parent="walls"]
+transform = Transform( 4.33126e-07, 0, 10, 0, 1, 0, -1, 0, 4.33126e-06, 12, 0, 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall12"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall12"]
+shape = SubResource( 3 )
+
+[node name="wall13" type="StaticBody" parent="walls"]
+transform = Transform( 1, 0, -9.53674e-07, 0, 1, 0, 4.76837e-07, 0, 2, 21, 0, 8 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall13"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall13"]
+shape = SubResource( 3 )
+
+[node name="wall14" type="StaticBody" parent="walls"]
+transform = Transform( -5.20549e-07, 0, -7, 0, 1, 0, 1, 0, -3.64384e-06, 15, 0, 11 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall14"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall14"]
+shape = SubResource( 3 )
+
+[node name="wall15" type="StaticBody" parent="walls"]
+transform = Transform( -1, 0, 1.25567e-06, 0, 1, 0, -6.27833e-07, 0, -2, 7, 0, 10 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall15"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall15"]
+shape = SubResource( 3 )
+
+[node name="wall16" type="StaticBody" parent="walls"]
+transform = Transform( -1, 0, 1.25567e-06, 0, 1, 0, -6.27833e-07, 0, -2, -5, 0, -2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall16"]
+mesh = SubResource( 2 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall16"]
+shape = SubResource( 3 )
+
+[node name="enemy" type="Spatial" parent="."]
+
+[node name="rotate of death spaced out" parent="enemy" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0.776, 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemy/rotate of death spaced out"]
+autoplay = "rotate"
+anims/RESET = SubResource( 11 )
+anims/rotate = SubResource( 12 )
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -2, 0.776, -1 )
+
+[node name="InterpolatedCamera" type="InterpolatedCamera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 13, 24, 24 )
+
+[connection signal="body_entered" from="safe/checkpoint1" to="." method="_on_checkpoint1_body_entered"]
+[connection signal="body_entered" from="safe/checkpoint2" to="." method="_on_checkpoint2_body_entered"]
+[connection signal="body_entered" from="safe/goal" to="." method="_on_goal_body_entered"]
+[connection signal="player_hit" from="enemy/rotate of death spaced out" to="." method="_on_rotate_of_death_spaced_out_player_hit"]

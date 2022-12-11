@@ -27,3 +27,15 @@ func _on_Timer_timeout():
 
 func _on_Level_2_reset_level():
 	$Timer.start()
+
+
+func _on_Level_3_reset_level():
+	$Timer.start()
+
+
+func _on_Level_4_reset_level():
+	$Timer.start()
+
+
+func _on_Level_6_reset_level():
+	$Timer.start()

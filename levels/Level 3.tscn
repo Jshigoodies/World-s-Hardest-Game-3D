@@ -1,0 +1,601 @@
+[gd_scene load_steps=35 format=2]
+
+[ext_resource path="res://libraries/safe_block.tres" type="MeshLibrary" id=1]
+[ext_resource path="res://libraries/Blocks.tres" type="MeshLibrary" id=2]
+[ext_resource path="res://assets/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/wall_material.tres" type="Material" id=4]
+[ext_resource path="res://scripts/Level 3.gd" type="Script" id=5]
+[ext_resource path="res://assets/coin.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/enemyBalls.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0.776, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "respawn_point"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0.776, 0 ) ]
+}
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 2, 1, 2 )
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="BoxShape" id=3]
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -1, 0.776, -3 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "ball1"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -1, 0.776, -3 ), Vector3( 1, 0.776, -3 ), Vector3( 3, 0.776, -3 ), Vector3( 3, 0.776, -1 ), Vector3( 3, 0.776, 1 ), Vector3( 3, 0.776, 3 ), Vector3( 1, 0.776, 3 ), Vector3( -1, 0.776, 3 ), Vector3( -3, 0.776, 3 ), Vector3( -3, 0.776, 1 ), Vector3( -3, 0.776, -1 ), Vector3( -3, 0.776, -3 ), Vector3( -1, 0.776, -3 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 0.776, -3 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "ball2"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 0.776, -3 ), Vector3( 3, 0.776, -3 ), Vector3( 3, 0.776, -1 ), Vector3( 3, 0.776, 1 ), Vector3( 3, 0.776, 3 ), Vector3( 1, 0.776, 3 ), Vector3( -1, 0.776, 3 ), Vector3( -3, 0.776, 3 ), Vector3( -3, 0.776, 1 ), Vector3( -3, 0.776, -1 ), Vector3( -3, 0.776, -3 ), Vector3( -1, 0.776, -3 ), Vector3( 1, 0.776, -3 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 3, 0.776, -3 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "ball3"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 3, 0.776, -3 ), Vector3( 3, 0.776, -1 ), Vector3( 3, 0.776, 1 ), Vector3( 3, 0.776, 3 ), Vector3( 1, 0.776, 3 ), Vector3( -1, 0.776, 3 ), Vector3( -3, 0.776, 3 ), Vector3( -3, 0.776, 1 ), Vector3( -3, 0.776, -1 ), Vector3( -3, 0.776, -3 ), Vector3( -1, 0.776, -3 ), Vector3( 1, 0.776, -3 ), Vector3( 3, 0.776, -3 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 3, 0.776, -1 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "ball4"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 3, 0.776, -1 ), Vector3( 3, 0.776, 1 ), Vector3( 3, 0.776, 3 ), Vector3( 1, 0.776, 3 ), Vector3( -1, 0.776, 3 ), Vector3( -3, 0.776, 3 ), Vector3( -3, 0.776, 1 ), Vector3( -3, 0.776, -1 ), Vector3( -3, 0.776, -3 ), Vector3( -1, 0.776, -3 ), Vector3( 1, 0.776, -3 ), Vector3( 3, 0.776, -3 ), Vector3( 3, 0.776, -1 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 3, 0.776, 1 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "ball5"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 3, 0.776, 1 ), Vector3( 3, 0.776, 3 ), Vector3( 1, 0.776, 3 ), Vector3( -1, 0.776, 3 ), Vector3( -3, 0.776, 3 ), Vector3( -3, 0.776, 1 ), Vector3( -3, 0.776, -1 ), Vector3( -3, 0.776, -3 ), Vector3( -1, 0.776, -3 ), Vector3( 1, 0.776, -3 ), Vector3( 3, 0.776, -3 ), Vector3( 3, 0.776, -1 ), Vector3( 3, 0.776, 1 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 3, 0.776, 3 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "ball6"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 3, 0.776, 3 ), Vector3( 1, 0.776, 3 ), Vector3( -1, 0.776, 3 ), Vector3( -3, 0.776, 3 ), Vector3( -3, 0.776, 1 ), Vector3( -3, 0.776, -1 ), Vector3( -3, 0.776, -3 ), Vector3( -1, 0.776, -3 ), Vector3( 1, 0.776, -3 ), Vector3( 3, 0.776, -3 ), Vector3( 3, 0.776, -1 ), Vector3( 3, 0.776, 1 ), Vector3( 3, 0.776, 3 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 1, 0.776, 3 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "ball7"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1, 0.776, 3 ), Vector3( -1, 0.776, 3 ), Vector3( -3, 0.776, 3 ), Vector3( -3, 0.776, 1 ), Vector3( -3, 0.776, -1 ), Vector3( -3, 0.776, -3 ), Vector3( -1, 0.776, -3 ), Vector3( 1, 0.776, -3 ), Vector3( 3, 0.776, -3 ), Vector3( 3, 0.776, -1 ), Vector3( 3, 0.776, 1 ), Vector3( 3, 0.776, 3 ), Vector3( 1, 0.776, 3 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -1, 0.776, 3 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "ball8"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -1, 0.776, 3 ), Vector3( -3, 0.776, 3 ), Vector3( -3, 0.776, 1 ), Vector3( -3, 0.776, -1 ), Vector3( -3, 0.776, -3 ), Vector3( -1, 0.776, -3 ), Vector3( 1, 0.776, -3 ), Vector3( 3, 0.776, -3 ), Vector3( 3, 0.776, -1 ), Vector3( 3, 0.776, 1 ), Vector3( 3, 0.776, 3 ), Vector3( 1, 0.776, 3 ), Vector3( -1, 0.776, 3 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -3, 0.776, 3 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "ball9"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -3, 0.776, 3 ), Vector3( -3, 0.776, 1 ), Vector3( -3, 0.776, -1 ), Vector3( -3, 0.776, -3 ), Vector3( -1, 0.776, -3 ), Vector3( 1, 0.776, -3 ), Vector3( 3, 0.776, -3 ), Vector3( 3, 0.776, -1 ), Vector3( 3, 0.776, 1 ), Vector3( 3, 0.776, 3 ), Vector3( 1, 0.776, 3 ), Vector3( -1, 0.776, 3 ), Vector3( -3, 0.776, 3 ) ]
+}
+
+[sub_resource type="Animation" id=25]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -3, 0.776, 1 ) ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "ball10"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -3, 0.776, 1 ), Vector3( -3, 0.776, -1 ), Vector3( -3, 0.776, -3 ), Vector3( -1, 0.776, -3 ), Vector3( 1, 0.776, -3 ), Vector3( 3, 0.776, -3 ), Vector3( 3, 0.776, -1 ), Vector3( 3, 0.776, 1 ), Vector3( 3, 0.776, 3 ), Vector3( 1, 0.776, 3 ), Vector3( -1, 0.776, 3 ), Vector3( -3, 0.776, 3 ), Vector3( -3, 0.776, 1 ) ]
+}
+
+[sub_resource type="Animation" id=27]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -3, 0.776, -1 ) ]
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "ball11"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -3, 0.776, -1 ), Vector3( -3, 0.776, -3 ), Vector3( -1, 0.776, -3 ), Vector3( 1, 0.776, -3 ), Vector3( 3, 0.776, -3 ), Vector3( 3, 0.776, -1 ), Vector3( 3, 0.776, 1 ), Vector3( 3, 0.776, 3 ), Vector3( 1, 0.776, 3 ), Vector3( -1, 0.776, 3 ), Vector3( -3, 0.776, 3 ), Vector3( -3, 0.776, 1 ), Vector3( -3, 0.776, -1 ) ]
+}
+
+[node name="Level 3" type="Spatial"]
+script = ExtResource( 5 )
+
+[node name="respawn" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 5 )
+anims/respawn_point = SubResource( 6 )
+
+[node name="blocks" type="GridMap" parent="."]
+mesh_library = ExtResource( 2 )
+data = {
+"cells": PoolIntArray( -65535, 0, 1, -2, 0, 0, -65536, 1, 1, -65535, 1, 0, -2, 1, 1, -1, 1, 0, -2, 65533, 1, -65536, 65534, 0, -65535, 65534, 1, -2, 65534, 0, -1, 65534, 1, -65535, 65535, 0, -2, 65535, 1 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, -1, 0 )
+}
+
+[node name="safe" type="Spatial" parent="."]
+
+[node name="safe" type="GridMap" parent="safe"]
+mesh_library = ExtResource( 1 )
+data = {
+"cells": PoolIntArray( -65536, 0, 0, -1, 0, 0, -65536, 65535, 0, -1, 65535, 0 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, -1, 0 )
+}
+
+[node name="Area" type="Area" parent="safe"]
+
+[node name="CollisionShape" type="CollisionShape" parent="safe/Area"]
+shape = SubResource( 4 )
+
+[node name="walls" type="Spatial" parent="."]
+
+[node name="wall1" type="StaticBody" parent="walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4, 5, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall1"]
+mesh = SubResource( 1 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall1"]
+shape = SubResource( 3 )
+
+[node name="wall2" type="StaticBody" parent="walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 5, -5, 0, -1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall2"]
+mesh = SubResource( 1 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall2"]
+shape = SubResource( 3 )
+
+[node name="wall3" type="StaticBody" parent="walls"]
+transform = Transform( -4.37114e-08, 0, 6, 0, 1, 0, -1, 0, -2.62268e-07, 0, 0, 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall3"]
+mesh = SubResource( 1 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall3"]
+shape = SubResource( 3 )
+
+[node name="wall4" type="StaticBody" parent="walls"]
+transform = Transform( -4.37114e-08, 0, 4, 0, 1, 0, -1, 0, -1.74846e-07, 2, 0, -5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall4"]
+mesh = SubResource( 1 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall4"]
+shape = SubResource( 3 )
+
+[node name="wall5" type="StaticBody" parent="walls"]
+transform = Transform( -4.37114e-08, 0, 3, 0, 1, 0, -1, 0, -1.31134e-07, -3, 0, -7 )
+
+[node name="MeshInstance" type="MeshInstance" parent="walls/wall5"]
+mesh = SubResource( 1 )
+material/0 = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="walls/wall5"]
+shape = SubResource( 3 )
+
+[node name="coins" type="Spatial" parent="."]
+
+[node name="coin" parent="coins" instance=ExtResource( 6 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3, 0.776, -5 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.776, 0 )
+
+[node name="InterpolatedCamera" type="InterpolatedCamera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 10, 9 )
+
+[node name="enimies" type="Spatial" parent="."]
+
+[node name="enemyBalls" parent="enimies" instance=ExtResource( 7 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -1, 0.776, -3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enimies/enemyBalls"]
+autoplay = "ball1"
+anims/RESET = SubResource( 7 )
+anims/ball1 = SubResource( 8 )
+
+[node name="enemyBalls2" parent="enimies" instance=ExtResource( 7 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 1, 0.776, -3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enimies/enemyBalls2"]
+autoplay = "ball2"
+anims/RESET = SubResource( 9 )
+anims/ball2 = SubResource( 10 )
+
+[node name="enemyBalls3" parent="enimies" instance=ExtResource( 7 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3, 0.776, -3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enimies/enemyBalls3"]
+autoplay = "ball3"
+anims/RESET = SubResource( 11 )
+anims/ball3 = SubResource( 12 )
+
+[node name="enemyBalls4" parent="enimies" instance=ExtResource( 7 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3, 0.776, -1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enimies/enemyBalls4"]
+autoplay = "ball4"
+anims/RESET = SubResource( 13 )
+anims/ball4 = SubResource( 14 )
+
+[node name="enemyBalls5" parent="enimies" instance=ExtResource( 7 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3, 0.776, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enimies/enemyBalls5"]
+autoplay = "ball5"
+anims/RESET = SubResource( 15 )
+anims/ball5 = SubResource( 16 )
+
+[node name="enemyBalls6" parent="enimies" instance=ExtResource( 7 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3, 0.776, 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enimies/enemyBalls6"]
+autoplay = "ball6"
+anims/RESET = SubResource( 17 )
+anims/ball6 = SubResource( 18 )
+
+[node name="enemyBalls7" parent="enimies" instance=ExtResource( 7 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 1, 0.776, 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enimies/enemyBalls7"]
+autoplay = "ball7"
+anims/RESET = SubResource( 19 )
+anims/ball7 = SubResource( 20 )
+
+[node name="enemyBalls8" parent="enimies" instance=ExtResource( 7 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -1, 0.776, 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enimies/enemyBalls8"]
+autoplay = "ball8"
+anims/RESET = SubResource( 21 )
+anims/ball8 = SubResource( 22 )
+
+[node name="enemyBalls9" parent="enimies" instance=ExtResource( 7 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3, 0.776, 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enimies/enemyBalls9"]
+autoplay = "ball9"
+anims/RESET = SubResource( 23 )
+anims/ball9 = SubResource( 24 )
+
+[node name="enemyBalls10" parent="enimies" instance=ExtResource( 7 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3, 0.776, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enimies/enemyBalls10"]
+autoplay = "ball10"
+anims/RESET = SubResource( 25 )
+anims/ball10 = SubResource( 26 )
+
+[node name="enemyBalls11" parent="enimies" instance=ExtResource( 7 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3, 0.776, -1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enimies/enemyBalls11"]
+autoplay = "ball11"
+anims/RESET = SubResource( 27 )
+anims/ball11 = SubResource( 28 )
+
+[connection signal="reset_level" from="." to="coins/coin" method="_on_Level_3_reset_level"]
+[connection signal="body_entered" from="safe/Area" to="." method="_on_Area_body_entered"]
+[connection signal="coin_collect" from="coins/coin" to="." method="_on_coin_coin_collect"]
+[connection signal="body_entered" from="enimies/enemyBalls" to="." method="_on_enemyBalls_body_entered"]
+[connection signal="body_entered" from="enimies/enemyBalls2" to="." method="_on_enemyBalls_body_entered"]
+[connection signal="body_entered" from="enimies/enemyBalls3" to="." method="_on_enemyBalls_body_entered"]
+[connection signal="body_entered" from="enimies/enemyBalls4" to="." method="_on_enemyBalls_body_entered"]
+[connection signal="body_entered" from="enimies/enemyBalls5" to="." method="_on_enemyBalls_body_entered"]
+[connection signal="body_entered" from="enimies/enemyBalls6" to="." method="_on_enemyBalls_body_entered"]
+[connection signal="body_entered" from="enimies/enemyBalls7" to="." method="_on_enemyBalls_body_entered"]
+[connection signal="body_entered" from="enimies/enemyBalls8" to="." method="_on_enemyBalls_body_entered"]
+[connection signal="body_entered" from="enimies/enemyBalls9" to="." method="_on_enemyBalls_body_entered"]
+[connection signal="body_entered" from="enimies/enemyBalls10" to="." method="_on_enemyBalls_body_entered"]
+[connection signal="body_entered" from="enimies/enemyBalls11" to="." method="_on_enemyBalls_body_entered"]

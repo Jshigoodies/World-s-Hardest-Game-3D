@@ -1,11 +1,15 @@
 extends Spatial
 
 signal reset_level
+
 var coins = 1
 
 func _ready():
 	pass
 
+
+func _on_coin_coin_collect():
+	coins = coins - 1
 
 
 func _on_enemyBalls_body_entered(body):
@@ -15,11 +19,7 @@ func _on_enemyBalls_body_entered(body):
 		coins = 1
 
 
-func _on_goal_body_entered(body):
+func _on_Area_body_entered(body):
 	if body.name == "Player":
 		if coins == 0:
-			get_tree().change_scene("res://levels/Text_lvl3.tscn")
-
-
-func _on_coin_coin_collect():
-	coins = coins - 1
+			get_tree().change_scene("res://levels/Text_lvl4.tscn")
