@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fonts/Amaranth-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://fonts/Amaranth-BoldItalic.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scripts/End.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 33
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 89
+font_data = ExtResource( 2 )
+
+[node name="End" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1306.0
+margin_bottom = 745.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = 11.0
+margin_top = 135.0
+margin_right = 2154.0
+margin_bottom = 708.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "I'm done for now. It takes a long time to make levels. 
+Especially when you're a 1 man army. Doing the code, designs, shading, etc. So I'm done.
+
+Copying a game is hard work.
+
+Easter eggs: 
+- hold the 'f' key and the 'k' key at the title screen.
+- check the first level again.
+
+"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 338.0
+margin_top = 558.0
+margin_right = 894.0
+margin_bottom = 672.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.564706, 0.105882, 0.105882, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Return to Title"
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

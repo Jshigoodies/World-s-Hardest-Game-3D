@@ -39,3 +39,7 @@ func _on_Level_4_reset_level():
 
 func _on_Level_6_reset_level():
 	$Timer.start()
+
+
+func _on_Level_7_reset_level():
+	$Timer.start()

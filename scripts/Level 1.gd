@@ -18,3 +18,8 @@ func _on_goal_body_entered(body):
 func _on_enemyBalls_body_entered(body):
 	if body.name == "Player":
 		reset_level()
+
+
+func _on_secret_body_entered(body):
+	if body.name == "Player":
+		get_tree().change_scene("res://levels/BOSS LEVEL.tscn")

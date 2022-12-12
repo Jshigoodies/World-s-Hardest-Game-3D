@@ -9,4 +9,4 @@ func _ready():
 
 
 func _on_Timer_timeout():
-	pass # Replace with function body.
+	get_tree().change_scene("res://levels/Level 7.tscn")
