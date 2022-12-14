@@ -16,6 +16,10 @@ boot_splash/image="res://png/hardest_game.png"
 config/icon="res://png/icon.png"
 config/windows_native_icon="res://png/icon.ico"
 
+[autoload]
+
+GlobalAudioStreamPlayer="*res://assets/AudioStreamPlayer.tscn"
+
 [display]
 
 window/size/width=1280

@@ -1,7 +1,7 @@
 extends KinematicBody
 
 var velocity = Vector3(0, 0, 0)
-const SPEED = 360
+var SPEED = 360
 
 func _ready():
 	pass
@@ -26,3 +26,7 @@ func _physics_process(delta):
 		velocity.z = lerp(velocity.z, 0, 0.5)
 	
 	move_and_slide(velocity)
+
+
+func _on_BOSS_LEVEL_gotta_go_fast():
+	SPEED = 1000

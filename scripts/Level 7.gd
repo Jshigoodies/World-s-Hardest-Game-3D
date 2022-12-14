@@ -17,6 +17,7 @@ func _on_enemyBalls_body_entered(body):
 	if body.name == "Player":
 		emit_signal("reset_level")
 		$respawn.play("respawn_point")
+		coins = 4
 	
 
 
