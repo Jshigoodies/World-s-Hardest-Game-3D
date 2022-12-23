@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fonts/Amaranth-Italic.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/SpeedRun.gd" type="Script" id=2]
+[ext_resource path="res://fonts/Amaranth-Bold.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 72
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 61
+font_data = ExtResource( 3 )
+
+[node name="SpeedRun" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1324.0
+margin_bottom = 738.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = 57.0
+margin_top = 35.0
+margin_right = 532.0
+margin_bottom = 305.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Speedruns
+
+- Angel: 2:29.23
+- Jason: 3:54.77"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 193.0
+margin_top = 132.0
+margin_right = 330.0
+margin_bottom = 157.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Beat the first 7 levels"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 459.0
+margin_top = 618.0
+margin_right = 860.0
+margin_bottom = 699.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.588235, 0.0509804, 0.0509804, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Return to Title"
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

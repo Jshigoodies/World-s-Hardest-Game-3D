@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://png/the_world_s_hardest_game_logo_by_robinle_d9onyft-pre.png" type="Texture" id=1]
 [ext_resource path="res://Start_Screen.gd" type="Script" id=2]
@@ -6,6 +6,11 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 51
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 41
 use_filter = true
 font_data = ExtResource( 3 )
 
@@ -36,4 +41,16 @@ custom_fonts/font = SubResource( 1 )
 text = "Play Game"
 flat = true
 
+[node name="Button2" type="Button" parent="."]
+margin_left = 102.0
+margin_top = 596.0
+margin_right = 532.0
+margin_bottom = 660.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.631373, 0.113725, 0.113725, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Leaderboards Speedrun"
+flat = true
+
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
